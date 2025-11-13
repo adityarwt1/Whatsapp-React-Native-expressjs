@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Feather from "react-native-vector-icons/Feather";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -13,7 +13,16 @@ const Index = () => {
         <View style={styles.WhatsAppLogoContainer}>
           <FontAwesome name="whatsapp" size={100} style={styles.whatsApplogo} />
         </View>
-        <Text style={styles.item}>sasdfasdf</Text>
+        <Text style={styles.brownTextColor}>
+          Read our <Text style={styles.blueTextColor}>Privacy Policy</Text>,
+          then tap Agree to continue to accept{" "}
+          <Text style={styles.blueTextColor}>Terms and Services</Text>.
+        </Text>
+        <View style={styles.item}>
+          <TouchableOpacity style={styles.agreeButton}>
+            <Text style={styles.agreeButtonText}>Agree to continue</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -52,9 +61,32 @@ const styles = StyleSheet.create({
   WhatsAppLogoContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   whatsApplogo: {
     color: "#3ACB73",
+  },
+  blueTextColor: {
+    color: "#4A788F",
+  },
+  brownTextColor: {
+    textAlign: "center",
+    margin: 20,
+    color: "#303539",
+  },
+  agreeButton: {
+    backgroundColor: "#21C063",
+    paddingVertical: 14,
+    marginHorizontal: 20,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 40,
+  },
+
+  agreeButtonText: {
+    color: "#0B1014",
+    fontSize: 16,
+    fontWeight: "600",
   },
 });
