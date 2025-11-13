@@ -1,9 +1,15 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Feather from "react-native-vector-icons/Feather";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 const Index = () => {
+  const router = useRouter()
+
+  const handleNavigate = ()=>{
+    router.push("/login")
+  }
   return (
     <SafeAreaView style={styles.outerMostdiv}>
       <View style={styles.container}>
@@ -19,7 +25,7 @@ const Index = () => {
           <Text style={styles.blueTextColor}>Terms and Services</Text>.
         </Text>
         <View style={styles.item}>
-          <TouchableOpacity style={styles.agreeButton}>
+          <TouchableOpacity style={styles.agreeButton} onPress={handleNavigate}>
             <Text style={styles.agreeButtonText}>Agree to continue</Text>
           </TouchableOpacity>
         </View>
