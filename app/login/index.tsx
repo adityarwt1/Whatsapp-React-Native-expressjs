@@ -1,3 +1,5 @@
+ import { auth } from "@/lib/firebase";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -5,8 +7,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const Login = () => {
   const [error, setError] = useState<string>();
 
-  const handleGoogleSignIN = () => {
+  const handleGoogleSignIN = async() => {
     try {
+      const provider  = new GoogleAuthProvider()
+      const user = await signInWithPopup(auth, provider)
+      console.log(user)
       console.log("button is working");
     } catch (error) {
       setError((error as Error).message);
@@ -34,6 +39,7 @@ const Login = () => {
 };
 
 export default Login;
+
 
 const styles = StyleSheet.create({
   mainContainer: {
